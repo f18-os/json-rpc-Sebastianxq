@@ -1,0 +1,101 @@
+student@arch1:~/Desktop/json-rpc-Sebastianxq/graph> ls
+localDemo.py  node.py  __pycache__  README.md
+student@arch1:~/Desktop/json-rpc-Sebastianxq/graph> cd
+student@arch1:~> cd Desktop/json-rpc-Sebastianxq
+student@arch1:~/Desktop/json-rpc-Sebastianxq> ls
+graph  minimal-jsonrpc-demo  README.md
+student@arch1:~/Desktop/json-rpc-Sebastianxq> mkdir jsonLab
+student@arch1:~/Desktop/json-rpc-Sebastianxq> ls
+graph  jsonLab  minimal-jsonrpc-demo  README.md
+student@arch1:~/Desktop/json-rpc-Sebastianxq> cd minimal-jsonrpc-demo
+student@arch1:~/Desktop/json-rpc-Sebastianxq/minimal-jsonrpc-demo> ls
+jclient.py  jserver.py  README.md
+student@arch1:~/Desktop/json-rpc-Sebastianxq/minimal-jsonrpc-demo> cd
+student@arch1:~> cd Destkop/josn-rpc-Sebastianxq/jsonLab
+bash: cd: Destkop/josn-rpc-Sebastianxq/jsonLab: No such file or directory
+student@arch1:~> cd Destkop/json-rpc-Sebastianxq/jsonLab
+bash: cd: Destkop/json-rpc-Sebastianxq/jsonLab: No such file or directory
+student@arch1:~> cd Desktop/josn-rpc-Sebastianxq/jsonLab
+bash: cd: Desktop/josn-rpc-Sebastianxq/jsonLab: No such file or directory
+student@arch1:~> cd Desktop/json-rpc-Sebastianxq/jsonLab
+student@arch1:~/Desktop/json-rpc-Sebastianxq/jsonLab> ls
+jclient.py  jserver.py  README.md
+student@arch1:~/Desktop/json-rpc-Sebastianxq/jsonLab> ls
+#jclient.py#  jclient.py  jclient.py~  jserver.py  node.py  README.md
+student@arch1:~/Desktop/json-rpc-Sebastianxq/jsonLab> python3 jclient.py
+Traceback (most recent call last):
+  File "jclient.py", line 13, in <module>
+    s.connect(('localhost', 50001))
+ConnectionRefusedError: [Errno 111] Connection refused
+student@arch1:~/Desktop/json-rpc-Sebastianxq/jsonLab> python3 jclient.py
+!dlroW olleH
+Friend!
+{'1': [2, 3]}
+student@arch1:~/Desktop/json-rpc-Sebastianxq/jsonLab> python3 jclient.py
+!dlroW olleH
+Friend!
+{'1': [2, 3]}
+student@arch1:~/Desktop/json-rpc-Sebastianxq/jsonLab> ls
+jclient.py  jclient.py~  jserver.py  jserver.py~  node.py  __pycache__  README.md
+student@arch1:~/Desktop/json-rpc-Sebastianxq/jsonLab> python3 jclient.py
+{'1': [2, 3]}
+root val=0:
+  leaf1 val=0:
+  leaf2 val=0:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/bsonrpc/socket_queue.py", line 102, in dumps
+    sort_keys=True).encode('utf-8')
+  File "/usr/lib64/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib64/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib64/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib64/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'node' is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/bsonrpc/rpc.py", line 91, in invoke_request
+    msg_id, method_name, args, kwargs))
+  File "/usr/lib/python3.6/site-packages/bsonrpc/socket_queue.py", line 172, in put
+    msg_bytes = self.codec.into_frame(self.codec.dumps(item))
+  File "/usr/lib/python3.6/site-packages/bsonrpc/socket_queue.py", line 104, in dumps
+    raise EncodingError(e)
+bsonrpc.exceptions.EncodingError: Object of type 'node' is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "jclient.py", line 39, in <module>
+    server.incrementTree(root)
+  File "/usr/lib/python3.6/site-packages/bsonrpc/util.py", line 35, in _curried
+    name, *args, _____timeout=self._timeout, **kwargs)
+  File "/usr/lib/python3.6/site-packages/bsonrpc/rpc.py", line 94, in invoke_request
+    raise ResponseTimeout(u'Waiting response expired.')
+bsonrpc.exceptions.ResponseTimeout: Waiting response expired.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/bsonrpc/rpc.py", line 91, in invoke_request
+    msg_id, method_name, args, kwargs))
+  File "/usr/lib/python3.6/site-packages/bsonrpc/socket_queue.py", line 172, in put
+    msg_bytes = self.codec.into_frame(self.codec.dumps(item))
+  File "/usr/lib/python3.6/site-packages/bsonrpc/socket_queue.py", line 104, in dumps
+    raise EncodingError(e)
+bsonrpc.exceptions.EncodingError: Object of type 'node' is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "jclient.py", line 39, in <module>
+    server.incrementTree(root)
+  File "/usr/lib/python3.6/site-packages/bsonrpc/util.py", line 35, in _curried
+    name, *args, _____timeout=self._timeout, **kwargs)
+  File "/usr/lib/python3.6/site-packages/bsonrpc/rpc.py", line 94, in invoke_request
+    raise ResponseTimeout(u'Waiting response expired.')
+bsonrpc.exceptions.ResponseTimeout: Waiting response expired.
