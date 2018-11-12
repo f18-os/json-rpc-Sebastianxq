@@ -8,6 +8,7 @@ from bsonrpc.exceptions import FramingError
 from bsonrpc.framing import (
 	JSONFramingNetstring, JSONFramingNone, JSONFramingRFC7464)
 from node import *
+import json
 
 # Class providing functions for the client to use:
 @service_class
@@ -21,6 +22,18 @@ class ServerServices(object):
   def nop(self, txt):
     print("taking in %s" (txt))
     return txt
+
+  @request
+  def incrementTree(self, o):
+    print ("made it to increment area!")
+    typeO = print(o)
+    nodeData = json.loads(o)
+    print(nodeData)
+    
+    #print(o)
+    return ("increment succesffuly")
+
+  
 
 # Quick-and-dirty TCP Server:
 ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
