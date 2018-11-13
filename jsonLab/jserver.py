@@ -10,10 +10,26 @@ from bsonrpc.framing import (
 from node import *
 import json
 
+def createGraph(nodeDict):
+  #print(nodeDict)
+  root = node(nodeDict["name"])
+  root.show()
+  buildGraphRecursive(root,nodeDict["children"])
+     #return root
+def buildGraphRecursive(root,children):
+   for child in children:
+    #print(child) does indeed print out child
+    if (child["children"] != ""):
+       buildGraphRecursive(child, nodeDict["children"])
+
+    root.children = node(child.name)
+   root.show()
+
+      
 # Class providing functions for the client to use:
 @service_class
 class ServerServices(object):
-
+      
   @request
   def swapper(self, txt):
     return ''.join(reversed(list(txt)))
@@ -25,14 +41,43 @@ class ServerServices(object):
 
   @request
   def incrementTree(self, o):
-    print ("made it to increment area!")
-    typeO = print(o)
-    nodeData = json.loads(o)
-    print(nodeData)
-    
-    #print(o)
+    print ("now incrementing tree on server side")
+    #nodeData is of type dictionary
+    #since dicts are data types, there must be a way to
+    #grab the head, head.data, child, child.data easily
+    #I would presume it'd be like iterating through a linked list or an associative array
+
+    nodeDict = json.loads(o) #string->dictionary
+    createGraph(nodeDict)
+
+        
+       
+    print("increment complete, now returning serialized tree")
     return ("increment succesffuly")
 
+  #code that I will likely not use
+  #subtree method, might not use
+  #def getsubtree(d, node) :
+    # if nodeDict.has_key(node) :
+    #   return([node] + [getsubtree(d,child) for child in d[node]])
+    # else :
+    #   return([node])
+  #def build_tree(nodeDict):
+      # create empty tree to fill
+      #tree = {}
+      # fill in tree starting with roots (those with no parent)
+     # build_tree_recursive(tree,None, nodeDict["children"])
+     # return tree
+    #def build_tree_recursive(tree, parent, nodes):
+      # find children
+     # children  = [n for n in nodes if n.parent == parent]
+      # build a subtree for each child
+      #for child in children:
+        # start new subtree
+      #  tree[child.name] = {}
+        # call recursively to build a subtree for current node
+        #build_tree_recursive(tree[child.name], child, nodes)
+  
   
 
 # Quick-and-dirty TCP Server:
