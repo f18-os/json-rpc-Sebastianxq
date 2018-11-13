@@ -13,17 +13,31 @@ import json
 def createGraph(nodeDict):
   #print(nodeDict)
   root = node(nodeDict["name"])
-  root.show()
+  #root.show()
   buildGraphRecursive(root,nodeDict["children"])
      #return root
 def buildGraphRecursive(root,children):
    for child in children:
-    #print(child) does indeed print out child
-    if (child["children"] != ""):
-       buildGraphRecursive(child, nodeDict["children"])
+     #print(child) does indeed print out child
+     #if (child["children"] != ""):
+        #buildGraphRecursive(child, child["children"])
+     tempChild  = node(child["name"]) #valid node is created out of this
+     #root.children = node(child["name"]) #returns reference to object addy???
+     #print(child) #dictionary type
+     #print(root.name) #no error when grabbing fields
+     print(tempChild.name)
+   #root.show()
 
-    root.children = node(child.name)
-   root.show()
+   #OPTIONS
+   #1.) Recursive call to bottom and then build root from ground up
+   #2.) Create 2 seperate objects and then return
+   #3.) Append to a list, then output list to children
+   
+def getChildren(root,children):
+  for child in children:
+    if (child["children"] == ""):
+      return node(root)
+    
 
       
 # Class providing functions for the client to use:
